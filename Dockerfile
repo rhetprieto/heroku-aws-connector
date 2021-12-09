@@ -13,5 +13,5 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -E - \
     && npm i -g heroku
 
 COPY /scripts/fetch_and_restore.sh /run/script.sh
-
+COPY version.txt version.txt
 ENTRYPOINT ["/run/script.sh"]
