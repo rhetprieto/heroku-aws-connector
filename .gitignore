@@ -17,3 +17,6 @@ vendor
 
 # Mac .DS_Store files
 **/.DS_Store
+
+# Development files
+/scripts/run-dev.sh
