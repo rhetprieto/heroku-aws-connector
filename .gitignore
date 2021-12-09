@@ -1,0 +1,19 @@
+doc
+.yardoc
+tags
+
+# Ignore Bundler stuff
+.bundle
+vendor
+
+# Ignore vim temp files
+*.swp
+
+# Ignore rubymine files
+/.idea/
+
+# Ignore log files
+/log/*
+
+# Mac .DS_Store files
+**/.DS_Store
