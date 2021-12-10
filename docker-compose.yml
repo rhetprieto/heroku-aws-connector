@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${REPOSITORY_NAME:-heroku-aws-connector}:${VERSION:-0.1}
+    environment:
+      - HEROKU_API_KEY=${HEROKU_API_KEY}
+      - HEROKU_APP_NAME=${HEROKU_APP_NAME}
+      - TARGET_DB_HOST=${TARGET_DB_HOST}
+      - TARGET_DB_USER=${TARGET_DB_USER}
+      - TARGET_DB_NAME=${TARGET_DB_NAME}
+      - NUMBER_OF_JOBS=${NUMBER_OF_JOBS}
+    entrypoint: /run/script.sh
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+volumes:
+  logvolume01: {}

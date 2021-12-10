@@ -35,9 +35,9 @@ compose_options=(
     --region "${REGION}"
     --cluster "${CLUSTER_NAME}"
     --project-name "${NAME}"
-    --file ./docker-compose.yml
+    --file ../../docker-compose.yml
 )
-CMD="${env_vars[@]} ecs-cli compose ${compose_options[@]} start  --ecs-params ecs-params.yml"
+CMD="${env_vars[@]} ecs-cli compose ${compose_options[@]} start --ecs-params ecs-params.yml"
 
 echo "${CMD}"
 eval "${CMD}"
