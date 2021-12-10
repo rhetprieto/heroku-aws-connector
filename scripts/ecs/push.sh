@@ -18,7 +18,7 @@ $(aws ecr get-login --region $REGION | sed -e 's/-e none//g')
 REPOSITORY_URI=`aws ecr describe-repositories --repository-names ${NAME} --region ${REGION} | jq .repositories[].repositoryUri | tr -d '"'`
 echo Found ECR repository: $REPOSITORY_URI
 
-CONNECTOR_IMAGE=$REPOSITORY_URI:$NAME:$VERSION
+CONNECTOR_IMAGE=$REPOSITORY_URI:$VERSION
 echo Tagging and pushing latest for ECR with version: $VERSION ...
 
 echo $CONNECTOR_IMAGE
