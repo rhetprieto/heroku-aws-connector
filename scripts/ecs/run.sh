@@ -15,7 +15,7 @@ USAGE="This script runs the db migration tasl to ecs"
 NAME="heroku-aws-connector"
 CLUSTER_NAME="heroku-aws-connector"
 REGION="us-east-1"
-VERSION=$(cat ../../version.txt)
+VERSION=$(cat ./../../version.txt)
 
 REPOSITORY_URI=`aws ecr describe-repositories --repository-names ${NAME} --region ${REGION} | jq .repositories[].repositoryUri | tr -d '"'`
 CONNECTOR_IMAGE=$REPOSITORY_URI:$NAME:$VERSION
@@ -34,7 +34,7 @@ compose_options=(
     --region "${REGION}"
     --cluster "${CLUSTER_NAME}"
     --project-name "${NAME}"
-    --file ../../docker-compose.yml
+    --file ./../../docker-compose.yml
 )
 CMD="${env_vars[@]} ecs-cli compose ${compose_options[@]} start --ecs-params ecs-params.yml"
 

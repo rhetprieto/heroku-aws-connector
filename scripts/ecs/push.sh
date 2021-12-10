@@ -8,7 +8,7 @@ set -o pipefail
 NAME="heroku-aws-connector"
 CLUSTER_NAME="heroku-aws-connector"
 REGION="us-east-1"
-VERSION=$(cat ../../version.txt)
+VERSION=$(cat ./../../version.txt)
 
 echo Logging into ECR ...
 # Login to docker
