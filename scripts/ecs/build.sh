@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 set -u
 set -o pipefail
 
-NAME=${NAME:-heroku-aws-connector}
-VERSION=${VERSION:-$(cat version.txt)}
+NAME="heroku-aws-connector"
+VERSION=$(cat version.txt)
 
 docker build . -t $NAME:$VERSION
