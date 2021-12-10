@@ -4,6 +4,11 @@ containerDefinitions:
   - dnsSearchDomains:
     environmentFiles:
     logConfiguration:
+      logDriver: awslogs
+        options:
+          awslogs-group: LogGroup
+          awslogs-region: us-east-1
+          awslogs-stream-prefix: heroku
     entryPoint:
     portMappings: []
     command:
