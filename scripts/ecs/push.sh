@@ -8,7 +8,7 @@ set -o pipefail
 REPOSITORY_NAME=${REPOSITORY_NAME:heroku-aws-connector}
 REGION=${REGION:-us-east-1}
 NAME=${NAME:-heroku-aws-connector}
-VERSION=${VERSION:-$(cat version.txt)}
+VERSION=${VERSION:-$(cat ../../version.txt)}
 
 echo Logging into ECR ...
 # Login to docker

@@ -12,13 +12,12 @@ USAGE="This script runs the db migration tasl to ecs"
 : ${TARGET_DB_NAME?You must provide a TARGET_DB_NAME as an environment variable.}
 : ${NUMBER_OF_JOBS?You must provide a NUMBER_OF_JOBS as an environment variable.}
 
-REPOSITORY_NAME=${REPOSITORY_NAME:-heroku-aws-connector}
-CLUSTER_NAME=${CLUSTER_NAME:-heroku-aws-connector}
-REGION=${AWS_REGION:-us-east-1}
-NAME=${NAME:-heroku-aws-connector}
-VERSION=${VERSION:-$(cat version.txt)}
+NAME="heroku-aws-connector"
+CLUSTER_NAME="heroku-aws-connector"
+REGION="us-east-1"
+VERSION=$(cat ../../version.txt)
 
-REPOSITORY_URI=`aws ecr describe-repositories --repository-names ${REPOSITORY_NAME} --region ${REGION} | jq .repositories[].repositoryUri | tr -d '"'`
+REPOSITORY_URI=`aws ecr describe-repositories --repository-names ${NAME} --region ${REGION} | jq .repositories[].repositoryUri | tr -d '"'`
 CONNECTOR_IMAGE=$REPOSITORY_URI:$NAME:$VERSION
 
 ecs-cli configure --cluster $CLUSTER_NAME --region $REGION --default-launch-type EC2
