@@ -22,5 +22,5 @@ CONNECTOR_IMAGE=$REPOSITORY_URI:$VERSION
 echo Tagging and pushing latest for ECR with version: $VERSION ...
 
 echo $CONNECTOR_IMAGE
-docker tag $NAME $CONNECTOR_IMAGE
+docker tag $NAME:$VERSION $CONNECTOR_IMAGE
 docker push $CONNECTOR_IMAGE
