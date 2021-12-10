@@ -33,11 +33,10 @@ env_vars=(
 compose_options=(
     --region "${REGION}"
     --cluster "${CLUSTER_NAME}"
-    --ecs_profile ecs-params.yml
-    --project-name "${NAME}"
+    --ecs-params ecs-params.yml
     --file docker-compose.yml
 )
-CMD="${env_vars[@]} ecs-cli compose start ${compose_options[@]}"
+CMD="${env_vars[@]} ecs-cli compose ${compose_options[@]} start"
 
 echo "${CMD}"
 eval "${CMD}"
