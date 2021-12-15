@@ -2,7 +2,6 @@
 set -e
 set -u
 set -o pipefail
-USAGE="This script runs the db migration tasl to ecs"
 
 : ${HEROKU_API_KEY?You must provide an HEROKU_API_KEY environment variable.}
 : ${HEROKU_APP_NAME?You must provide an HEROKU_APP_NAME environment variable.}
@@ -13,10 +12,7 @@ USAGE="This script runs the db migration tasl to ecs"
 : ${NUMBER_OF_JOBS?You must provide a NUMBER_OF_JOBS as an environment variable.}
 
 NAME="heroku-aws-connector"
-CLUSTER_NAME="heroku-connector"
-if [ "$ENVIRONMENT" == "staging" ]; then
-  CLUSTER_NAME="heroku-connector-staging"
-fi
+CLUSTER_NAME=$([ "$ENVIRONMENT" = "staging" ] && echo "heroku-connector-staging" || echo "heroku-connector")
 REGION="us-east-1"
 VERSION=$(cat version.txt)
 
