@@ -12,7 +12,7 @@ set -o pipefail
 : ${NUMBER_OF_JOBS?You must provide a NUMBER_OF_JOBS as an environment variable.}
 
 NAME="heroku-aws-connector"
-CLUSTER_NAME=$([ "$ENVIRONMENT" = "staging" ] && echo "heroku-connector-staging" || echo "heroku-connector")
+CLUSTER_NAME=$([ "$ENVIRONMENT" == "staging" ] && echo "heroku-connector-staging" || echo "heroku-connector")
 REGION="us-east-1"
 VERSION=$(cat version.txt)
 
