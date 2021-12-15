@@ -13,7 +13,7 @@ USAGE="This script runs the db migration tasl to ecs"
 : ${NUMBER_OF_JOBS?You must provide a NUMBER_OF_JOBS as an environment variable.}
 
 NAME="heroku-aws-connector"
-CLUSTER_NAME="heroku-aws-connector"
+CLUSTER_NAME="heroku-connector"
 REGION="us-east-1"
 VERSION=$(cat version.txt)
 
@@ -29,6 +29,7 @@ env_vars=(
     TARGET_DB_USER=${TARGET_DB_USER}
     TARGET_DB_NAME=${TARGET_DB_NAME}
     NUMBER_OF_JOBS=${NUMBER_OF_JOBS}
+    PGPASSWORD=${PGPASSWORD}
 )
 compose_options=(
     --region "${REGION}"

@@ -1,77 +1,9 @@
-ipcMode:
-executionRoleArn: arn:aws:iam::867872586470:role/heroku-connectorECS
-containerDefinitions:
-  - dnsSearchDomains:
-    environmentFiles:
-    logConfiguration:
-      logDriver: awslogs
-      options:
-        awslogs-group: LogGroup
-        awslogs-region: us-east-1
-        awslogs-stream-prefix: heroku
-    entryPoint:
-    portMappings: []
-    command:
-    linuxParameters:
-    cpu: 2048
-    environment: []
-    resourceRequirements:
-    ulimits:
-    dnsServers:
-    mountPoints: []
-    workingDirectory:
-    secrets:
-    dockerSecurityOptions:
-    memory: 3800
-    memoryReservation:
-    volumesFrom: []
-    stopTimeout:
-    startTimeout:
-    firelensConfiguration:
-    dependsOn:
-    disableNetworking:
-    interactive:
-    healthCheck:
-    essential: true
-    links:
-    hostname:
-    extraHosts:
-    pseudoTerminal:
-    user:
-    readonlyRootFilesystem:
-    dockerLabels:
-    systemControls:
-    privileged:
-    name: worker
-placementConstraints: []
-memory: '4096'
-taskRoleArn: arn:aws:iam::867872586470:role/heroku-connectorECS
-compatibilities:
-  - EXTERNAL
-  - EC2
-taskDefinitionArn: arn:aws:ecs:us-east-1:867872586470:task-definition/heroku-aws-connector:1
-family: heroku-aws-connector
-requiresAttributes:
-  - targetId:
-    targetType:
-    value:
-    name: com.amazonaws.ecs.capability.ecr-auth
-  - targetId:
-    targetType:
-    value:
-    name: com.amazonaws.ecs.capability.task-iam-role
-  - targetId:
-    targetType:
-    value:
-    name: ecs.capability.execution-role-ecr-pull
-pidMode:
-requiresCompatibilities:
-  - EC2
-networkMode:
-runtimePlatform:
-cpu: '2048'
-revision: 1
-status: ACTIVE
-inferenceAccelerators:
-proxyConfiguration:
-volumes: []
+version: 1
+task_definition:
+  task_role_arn: 'arn:aws:iam::867872586470:role/heroku-connectorECS'
+  task_execution_role: 'arn:aws:iam::867872586470:role/heroku-connectorECS'
+  # "mem_limit" is a HARD limit: docker will kill containers exceeding these values.
+  # "mem_reservation" will set a soft limit.
+  services:
+    web:
+      mem_limit: 3800m
