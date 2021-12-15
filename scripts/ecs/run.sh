@@ -18,7 +18,7 @@ REGION="us-east-1"
 VERSION=$(cat version.txt)
 
 REPOSITORY_URI=`aws ecr describe-repositories --repository-names ${NAME} --region ${REGION} | jq .repositories[].repositoryUri | tr -d '"'`
-CONNECTOR_IMAGE=$REPOSITORY_URI:$NAME:$VERSION
+CONNECTOR_IMAGE=$REPOSITORY_URI:$VERSION
 
 ecs-cli configure --cluster $CLUSTER_NAME --region $REGION --default-launch-type EC2
 
