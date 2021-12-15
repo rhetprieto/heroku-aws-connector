@@ -14,6 +14,9 @@ USAGE="This script runs the db migration tasl to ecs"
 
 NAME="heroku-aws-connector"
 CLUSTER_NAME="heroku-connector"
+if [ "$ENVIRONMENT" == "staging" ]; then
+  CLUSTER_NAME="heroku-connector-staging"
+fi
 REGION="us-east-1"
 VERSION=$(cat version.txt)
 
