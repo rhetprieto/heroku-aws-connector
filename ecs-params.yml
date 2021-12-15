@@ -1,7 +1,7 @@
 version: 1
 task_definition:
-  task_role_arn: 'arn:aws:iam::867872586470:role/heroku-connectorECS'
-  task_execution_role: 'arn:aws:iam::867872586470:role/heroku-connectorECS'
+  task_role_arn: 'arn:aws:iam::867872586470:role/heroku-connector-ECSRole-us-east-1'
+  task_execution_role: 'arn:aws:iam::867872586470:role/heroku-connector-ECSRole-us-east-1'
   # "mem_limit" is a HARD limit: docker will kill containers exceeding these values.
   # "mem_reservation" will set a soft limit.
   services:
