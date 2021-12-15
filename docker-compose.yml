@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ${REPOSITORY_NAME:-heroku-aws-connector}:${VERSION:-0.1}
+    image: ${CONNECTOR_IMAGE}
     environment:
       - HEROKU_API_KEY=${HEROKU_API_KEY}
       - HEROKU_APP_NAME=${HEROKU_APP_NAME}

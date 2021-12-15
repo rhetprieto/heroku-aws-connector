@@ -5,5 +5,5 @@ set -o pipefail
 
 NAME="heroku-aws-connector"
 VERSION=$(cat version.txt)
-
-docker build . -t $NAME:$VERSION
+CONNECTOR_IMAGE=$NAME:$VERSION
+docker build . -t $CONNECTOR_IMAGE

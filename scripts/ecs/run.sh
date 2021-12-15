@@ -30,6 +30,7 @@ env_vars=(
     TARGET_DB_NAME=${TARGET_DB_NAME}
     NUMBER_OF_JOBS=${NUMBER_OF_JOBS}
     PGPASSWORD=${PGPASSWORD}
+    CONNECTOR_IMAGE=${CONNECTOR_IMAGE}
 )
 compose_options=(
     --region "${REGION}"
