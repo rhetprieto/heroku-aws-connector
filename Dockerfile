@@ -8,7 +8,7 @@ RUN apt-get update -qq && apt-get install -y \
     awscli \
     snapd
 
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -E - \
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -E - \
     && apt-get install -y nodejs \
     && npm i -g heroku
 
